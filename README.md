@@ -5,9 +5,9 @@
 
 This is a portfolio that will hold all of the cool activities that we tackle in the February 2018 Savvy Coders cohort.
 
-** *Email:* jeffreywilliams.b@gmail.com**
+** *Email:* jeffreywilliams.b@gmail.com **
 
-[My Git hub](https://github.com/jwilliams32)
+[Checkout my Github!](https://github.com/jwilliams32)
 
 
 
