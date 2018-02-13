@@ -1,0 +1,33 @@
+h1{
+  color: hotpink;
+  font-size: 3em;
+  font-weight: bold;
+
+}
+
+h3{
+  color: red;
+  font-family: fantasy;
+}
+
+div{
+  font-size: 23;
+  font-weight: bolder;
+  /* border-style: solid; */
+}
+
+hr{
+border-style: dashed;
+}
+
+.backdrop{
+  background-color: purple
+}
+
+#barf{
+  background-color: skyblue;
+}
+
+.mid-width{
+width: 500px;
+}
