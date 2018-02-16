@@ -9,16 +9,26 @@
 </head>
 <body>
 
-<div id="navigation">
-  <a class="active" href="../index.html">Home</a>
-  <a href="../blog/index.html">Blog</a>
-  <a href="../projects/index.html">Projects</a>
-  <a href="../contact/index.html">Contact</a>
+  <div id="navigation">
+    <ul class="container">
+      <li>
+        <a class="active" href="../index.html">Home</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../projects">Projects</a>
+        <ul class="dropdown">
+          <li>first</li>
+          <li>Second</li>
+          <li>Third</li>
+        </ul>
+      </li>
+    </ul>
 
-</div>
+  </div>
 
 <div id="header">
 
+<h1>Contact Form</h1>
 
 </div>
 
@@ -29,8 +39,10 @@
   <input type="email">
   <input type="submit">
 </form> -->
+
+
 <form action="https://formspree.io/jeffreywilliams.b@gmail.com"
-      method="POST">
+      method="POST" id="container">
 
   <input type="text" name="firstname" placeholder="First Name" size="100" autofocus>
   <input type="text" name="lastname" placeholder="Last Name" size="100">
@@ -72,9 +84,9 @@
   </select>
   </label>
     <div id="containter">
-      <a href="www.github.com/jwilliams32">My Github</a>
-      <a href="www.linkedIn/jeffreywilliams.com">My LinkedIn</a>
-      <a href="www.google.com">Google Me</a>
+      <a href="//github.com/jwilliams32">My Github</a>
+      <a href="//linkedIn/jeffreywilliams.com">My LinkedIn</a>
+      <a href="//google.com">Google Me</a>
     </div>
 
 
