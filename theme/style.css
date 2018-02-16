@@ -9,13 +9,52 @@
     font-size: 16px;
 }
 
+
+#navigation > ul > li {
+  display:inline;
+  list-style: none;
+}
+
 #navigation{
-  padding: 15px;
-  margin: auto;
-  background-color: orange;
+  background-color: black;
+  color:brown;
+  /* overflow: hidden; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1.3rem;
+  /* view port width- vw */
+  width: 100vw;
+
+
+}
+/*. is id # is class
+absolute looks for parent with position
+of relative */
+#navigation .dropdown{
+  display: none;
+  position: absolute;
+  left: -2rem;
+
+}
+
+#navigation a:hover + .dropdown{
+  display: block;
+}
+
+#navigation li:first-child {
+  position: relative;
 }
 
 
+/* #navigation a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+} */
 
 #header{
   font-weight: bold;
