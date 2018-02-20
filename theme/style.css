@@ -129,7 +129,7 @@ a {
 
 }
 img{
-  align-items: center;
+  flex-flow: center;
 }
 /* indirect */
 ol li {
