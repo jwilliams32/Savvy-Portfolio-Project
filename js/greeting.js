@@ -1,3 +1,5 @@
+/* globals $*/
+
 // prompt takes an argument or input
 // alert creates a pop up
 
@@ -32,13 +34,15 @@
 // greetUser();
 //
 // console.log(
-//     document.querySelectorAll( someSelector )
+//     $( someSelector )
 // );
 
-var someSelector = prompt( "Give me a selector." );
+// var someSelector = prompt( "Give me a selector." );
 
-var greetUser = function greetUser(){
+function greetUser(){
     var firstName = prompt( "Whats Your Name?" );
+    var $h1 = $( "h1" );
+    var title = $h1.text();
     // using !(bang) for if nota
 
     if( !firstName ){
@@ -46,12 +50,34 @@ var greetUser = function greetUser(){
     }
     else{
         // selects the css element that is the user inputs and changes it to hello + firstname
-        document.querySelector( someSelector ).textContent = ( "Hello " + firstName );
+        $h1.text( title + " " + firstName );
+        // $( someSelector ).textContent = ( "Hello " + firstName );
     }
-};
+}
+// javascript way
+// document
+//     .querySelector( "#showcase" )
+//     .addEventListener(
+//         "click",
+//         greetUser
+//     );
 
-greetUser();
+// Jquery style query dom select showcase on click greetUser
+$( "#showcase" ).on( "click", greetUser );
+// .querySelector( "#showcase" )
+// .addEventListener( "click", function doesAThing(){
+//     alert( "a thing!" );
+// } );
 
-console.log(
-    document.querySelectorAll( someSelector )
-);
+// arrow function don't need to name inline function
+// .querySelector( "#showcase" )
+// .addEventListener(
+//     "click",
+//     () => alert( "a thing!" )
+// );
+
+// greetUser();
+//
+// console.log(
+//     $( someSelector )
+// );
