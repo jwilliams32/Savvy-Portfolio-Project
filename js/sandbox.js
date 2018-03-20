@@ -43,8 +43,8 @@ function animatedH2(){
 
     } );
 }
-
-$( "#output" ).on( "click", animatedH2 )
+// when you click the out put the h2 will animate then an alert box will pop up saying howdy
+$( "#output" ).on( "click", ( animatedH2 ) => alert( "Howdy" ) )
     // .hide() hides
 // append allows you to append multiple things
     // more efficent way

@@ -38,22 +38,42 @@
 // );
 
 // var someSelector = prompt( "Give me a selector." );
+var $h1 = $( "h1" );
+// var $button = $( "button" );
+var title = $h1.text();
+var $user = $( "#user" );
 
 function greetUser(){
-    var firstName = prompt( "Whats Your Name?" );
-    var $h1 = $( "h1" );
-    var title = $h1.text();
+    var firstName = $user.val();
+    // var firstName = prompt( "Whats Your Name?" );
+    // var $h1 = $( "h1" );
     // using !(bang) for if nota
 
-    if( !firstName ){
-        greetUser();
-    }
-    else{
-        // selects the css element that is the user inputs and changes it to hello + firstname
-        $h1.text( title + " " + firstName );
-        // $( someSelector ).textContent = ( "Hello " + firstName );
+    if( firstName ){
+        $h1.append( title + " " + firstName );
     }
 }
+// add parameter
+// event is an object
+// function inputCallback( event ){
+//     console.log( event.keyCode );
+// }
+// which chooses the which key you choose
+function inputCallback( event ){
+    if( event.which === 13 ){
+        greetUser();
+    }
+}
+// if( !firstName ){
+//     greetUser();
+// }
+// else{
+// selects the css element that is the user inputs and changes it to hello + firstname
+// $h1.text( title + " " + firstName );
+// $h1.append( title + " " + firstName );
+// $( someSelector ).textContent = ( "Hello " + firstName );
+// }
+
 // javascript way
 // document
 //     .querySelector( "#showcase" )
@@ -63,7 +83,8 @@ function greetUser(){
 //     );
 
 // Jquery style query dom select showcase on click greetUser
-$( "#showcase" ).on( "click", greetUser );
+$user.on( "keypress", inputCallback );
+$( "#greet" ).on( "click", greetUser );
 // .querySelector( "#showcase" )
 // .addEventListener( "click", function doesAThing(){
 //     alert( "a thing!" );
