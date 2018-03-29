@@ -1,14 +1,14 @@
 // caching the DOM
 // create variables for each part of the game
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 // Use underscore tags to show that its a DOM variable vs regular variables
 const userScoreSpan = document.getElementById( "user-score" );
 
 const computerScoreSpan = document.getElementById( "computer-score" );
 
 const scoreBoardDiv = document.querySelector( "score-board" );
-const resultDiv = document.querySelector( "result" );
+const resultP = document.querySelector( ".result > p" );
 const rockDiv = document.getElementById( "r" );
 const paperDiv = document.getElementById( "p" );
 const scissorsDiv = document.getElementById( "s" );
@@ -22,8 +22,70 @@ function getComputerChoice(){
     return choices[randomNumber];
 }
 
-// Create functions to keep track of wins, loses, and draws
+function convertToWord( letter ){
+    if( letter === "r" ){
+        return "Rock";
+    }
+    if( letter === "p" ){
+        return "Paper";
+    }
 
+    return "Scissor";
+
+
+    // console.log( letter );
+}
+
+// Create functions to keep track of wins, loses, and draws
+function win( userChoice, computerChoice ){
+    // console.log( "WIN" );
+    userScore++;
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore;
+    const smallUserWord = "user".fontsize( 3 ).sup();
+    const smallCompWord = "comp".fontsize( 3 ).sup();
+    // faster way to get info and render to page
+
+    resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} beats ${convertToWord( computerChoice )}${smallCompWord}. You win! 🔥`;
+    // resultP.innerHTML = convertToWord( userChoice ) + "beats " + convertToWord( computerChoice ) + ". You win! ";
+    document.getElementById( userChoice ).classList.add( "green-glow" );
+    // console.log( userChoice );
+    // console.log( computerChoice );
+    // console.log( "Win" );
+    // console.log( userScore );
+}
+
+function lose( userChoice,computerChoice ){
+    console.log( "You Lose" );
+    computerScore++;
+    computerScoreSpan.innerHTML = computerScore;
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore;
+    const smallUserWord = "user".fontsize( 3 ).sup();
+    const smallCompWord = "comp".fontsize( 3 ).sup();
+    // userScoreSpan.innerHTML = userScore;
+    // computerScoreSpan.innerHTML = computerScore;
+    // const smallUserWord = "user".fontsize( 3 ).sup();
+    // const smallCompWord = "comp".fontsize( 3 ).sup();
+    // faster way to get info and render to page
+
+    resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} loses to ${convertToWord( computerChoice )}${smallCompWord}. You lost....! 💩`;
+}
+
+function draw( userChoice, computerChoice ){
+    console.log( "Its a Draw" );
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore;
+    const smallUserWord = "user".fontsize( 3 ).sup();
+    const smallCompWord = "comp".fontsize( 3 ).sup();
+    // userScoreSpan.innerHTML = userScore;
+    // computerScoreSpan.innerHTML = computerScore;
+    // const smallUserWord = "user".fontsize( 3 ).sup();
+    // const smallCompWord = "comp".fontsize( 3 ).sup();
+    // faster way to get info and render to page
+
+    resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} equals ${convertToWord( computerChoice )}${smallCompWord}. It's a Draw! 🔁`;
+}
 
 // created a function for the choices the user has
 function game( userChoice ){
@@ -37,21 +99,25 @@ function game( userChoice ){
         case "rs":
         case "pr":
         case "sp":
-            win();
+            // console.log( "UserWins" );
+            win( userChoice, computerChoice );
             break;
             // comps choices to win
         case "rp":
         case "ps":
         case "sr":
-            lose();
+            // console.log( "You Lose" );
+            lose( userChoice, computerChoice );
             // tie choices
+            break;
         case "rr":
         case "pp":
         case "ss":
-            draw();
+            // console.log( "Its a Draw" );
+            draw( userChoice, computerChoice );
+            break;
     }
 }
-
 function main(){
     // addEventListener is waiting for the image to be clicked on either one of the const's by being connected to the html by r,p,s
     rockDiv.addEventListener( "click", function(){
@@ -64,5 +130,6 @@ function main(){
         game( "s" );
     } );
 }
+
 
 main();

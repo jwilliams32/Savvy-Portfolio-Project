@@ -1,3 +1,6 @@
+/* globals $ */
+
+
 var output = $( "#output" );
 // gives objects you can over write
 // valid html is strings

@@ -1,5 +1,6 @@
 /* globals $*/
-
+/* eslint-disable no-use-before-define */
+/* eslint-env jquery*/
 var story = {
     "start": "You walk into a dark forest at night! Would you like to camp or wander through the forest?",
     "camp": "You set up the tent and lie down for the night.",
@@ -20,22 +21,37 @@ var choice = prompt( story.start );
 var output = $( "#output" );
 
 var end = false;
+var end2 = false;
 
 while( end != true ){
+    // all the choices that end
     if( choice === "camp" || choice === "leave" || choice === "knockout" || choice === "continue" || choice === "run" || choice === "win" ){
         end = true;
         alert( story[choice] );
-        // $( "#output" ).text( story[choice] );
+        console.log( "end initiated" );
+        $( "#output" ).text( story[choice] );
     }
+    // all the choices that have other paths
     else if( choice === "wander" || choice === "fight" || choice === "headback" || choice === "help" || choice === "watch" ){
-        alert( story[choice] );
-        // $( "output" ).text( story[choice] );
+        // prompt( story[choice] );
+        choice = prompt( story[choice] );
+        $( "#output" ).text( story[choice] );
     }
 }
 
-// $("button").click(function()
-// $("body").css("background-color", "blue")
-// );
+// $( "button" ).click( function(){
+//     $( "body" ).css( "background-color","blue" );
+//     while( end2 != true ){
+//         if( choice === "camp" || choice === "leave" || choice === "knockout" || choice === "continue" || choice === "run" || choice === "win" ){
+//             end2 = true;
+//             $( "#output" ).text( story[choice] );
+//         }
+//         else if( choice === "wander" || choice === "fight" || choice === "headback" || choice === "help" || choice === "watch" ){
+//             $( "#output" ).text( story[choice] );
+//             choice = alert( story[choice] );
+//         }
+//     }
+// } );
 
 
 // var choice = prompt( story.start );
