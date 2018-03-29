@@ -39,16 +39,21 @@ function convertToWord( letter ){
 // Create functions to keep track of wins, loses, and draws
 function win( userChoice, computerChoice ){
     // console.log( "WIN" );
+    const smallUserWord = "user".fontsize( 3 ).sup();
+    const smallCompWord = "comp".fontsize( 3 ).sup();
+    const userChoiceDiv = document.getElementById( userChoice );
+
     userScore++;
     userScoreSpan.innerHTML = userScore;
     computerScoreSpan.innerHTML = computerScore;
-    const smallUserWord = "user".fontsize( 3 ).sup();
-    const smallCompWord = "comp".fontsize( 3 ).sup();
     // faster way to get info and render to page
 
     resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} beats ${convertToWord( computerChoice )}${smallCompWord}. You win! 🔥`;
     // resultP.innerHTML = convertToWord( userChoice ) + "beats " + convertToWord( computerChoice ) + ". You win! ";
-    document.getElementById( userChoice ).classList.add( "green-glow" );
+    userChoiceDiv.classList.add( "green-glow" );
+    setTimeout( function(){
+        userChoiceDiv.classList.remove( "green-glow" );
+    }, 500 );
     // console.log( userChoice );
     // console.log( computerChoice );
     // console.log( "Win" );
@@ -56,13 +61,16 @@ function win( userChoice, computerChoice ){
 }
 
 function lose( userChoice,computerChoice ){
-    console.log( "You Lose" );
+    // console.log( "You Lose" );
+    const smallUserWord = "user".fontsize( 3 ).sup();
+    const smallCompWord = "comp".fontsize( 3 ).sup();
+    const userChoiceDiv = document.getElementById( userChoice );
+
     computerScore++;
     computerScoreSpan.innerHTML = computerScore;
     userScoreSpan.innerHTML = userScore;
     computerScoreSpan.innerHTML = computerScore;
-    const smallUserWord = "user".fontsize( 3 ).sup();
-    const smallCompWord = "comp".fontsize( 3 ).sup();
+
     // userScoreSpan.innerHTML = userScore;
     // computerScoreSpan.innerHTML = computerScore;
     // const smallUserWord = "user".fontsize( 3 ).sup();
@@ -70,14 +78,20 @@ function lose( userChoice,computerChoice ){
     // faster way to get info and render to page
 
     resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} loses to ${convertToWord( computerChoice )}${smallCompWord}. You lost....! 💩`;
+    userChoiceDiv.classList.add( "red-glow" );
+    setTimeout( () => userChoiceDiv.classList.remove( "red-glow" ), 500 );
 }
 
 function draw( userChoice, computerChoice ){
-    console.log( "Its a Draw" );
-    userScoreSpan.innerHTML = userScore;
-    computerScoreSpan.innerHTML = computerScore;
+    // console.log( "Its a Draw" );
     const smallUserWord = "user".fontsize( 3 ).sup();
     const smallCompWord = "comp".fontsize( 3 ).sup();
+    const userChoiceDiv = document.getElementById( userChoice );
+
+    computerScoreSpan.innerHTML = computerScore;
+
+    userScoreSpan.innerHTML = userScore;
+
     // userScoreSpan.innerHTML = userScore;
     // computerScoreSpan.innerHTML = computerScore;
     // const smallUserWord = "user".fontsize( 3 ).sup();
@@ -85,6 +99,8 @@ function draw( userChoice, computerChoice ){
     // faster way to get info and render to page
 
     resultP.innerHTML = `${convertToWord( userChoice )}${smallUserWord} equals ${convertToWord( computerChoice )}${smallCompWord}. It's a Draw! 🔁`;
+    userChoiceDiv.classList.add( "gray-glow" );
+    setTimeout( () => userChoiceDiv.classList.remove( "gray-glow" ), 500 );
 }
 
 // created a function for the choices the user has
@@ -120,15 +136,10 @@ function game( userChoice ){
 }
 function main(){
     // addEventListener is waiting for the image to be clicked on either one of the const's by being connected to the html by r,p,s
-    rockDiv.addEventListener( "click", function(){
-        game( "r" );
-    } );
-    paperDiv.addEventListener( "click", function(){
-        game( "p" );
-    } );
-    scissorsDiv.addEventListener( "click", function(){
-        game( "s" );
-    } );
+    rockDiv.addEventListener( "click", () => game( "r" )
+    );
+    paperDiv.addEventListener( "click", () => game( "p" ) );
+    scissorsDiv.addEventListener( "click", () => game( "s" ) );
 }
 
 

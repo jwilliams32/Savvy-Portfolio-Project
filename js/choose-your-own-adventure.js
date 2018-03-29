@@ -4,16 +4,17 @@
 var story = {
     "start": "You walk into a dark forest at night! Would you like to camp or wander through the forest?",
     "camp": "You set up the tent and lie down for the night.",
-    "wander": "While walking through the forest you see a flamming object crash in the distance. You hear footsteps running towards you. Do you want to leave or fight?",
+    "wander": "While walking through the forest you see a flamming object crash in the distance. You hear footsteps running towards you. Do you want to [leave] or [fight]?",
     "leave": "You hear a loud roar from the distance coming towards you. You take off your gear and run back to the car to leave.",
-    "fight": "While walking in the forest towards the flamming object, you get into a brawl with the land owners. They stole your Eggo!! Will you go for a knockout, c'mon it's and Eggo or headback?",
+    "fight": "While walking in the forest towards the flamming object, you get into a brawl with the land owners. They stole your Eggo!! Will you go for a [knockout], c'mon it's and Eggo or [headback]?",
     "knockout": "You came out victorious. Your energy is recharged by eating the Eggo! You continue walking towards the crashed object in the distance. Continue!",
     "headback": "You are victorius you in your battle. Let's end on top and head home!!",
-    "continue": "Running towards the burning object. Debris is scatterd across the forest. You hear coughing and a yell for 'Help!' Help or Run ",
-    "help": "You rush over to the voice crying out. You pull the unidentified thing out from the debris. Will you watch or win?",
+    "continue1": "Running towards the burning object. Debris is scatterd across the forest. You hear coughing and a yell for 'Help!' [help] or [run] ",
+    "continue": "Running towards the burning object. Debris is scatterd across the forest. You hear coughing and a yell for 'Help!' [help] or [run] ",
+    "help": "You rush over to the voice crying out. You pull the unidentified thing out from the debris. Will you [watch] or [win]?",
     "run": "You see that the thing yelling for help isn't human. You run back towards the car! A loud cry is behind you. As you run you hear and feel something getting close to you. You start to cry. You trip and fall, like they usually do. You die! :-(",
-    "watch": "You look at the thing crying and it eats you!You just died!",
-    "win": "You help this thing out of the debris and get into a fight. ",
+    "watch": "You look at the creature crying and it eats you!You just died!",
+    "win": "You help this thing out of the debris and it is a Demogorgon, so you die. ",
 
 };
 
@@ -25,14 +26,14 @@ var end2 = false;
 
 while( end != true ){
     // all the choices that end
-    if( choice === "camp" || choice === "leave" || choice === "knockout" || choice === "continue" || choice === "run" || choice === "win" ){
+    if( choice === "camp" || choice === "leave" || choice === "continue1" || choice === "win" ){
         end = true;
         alert( story[choice] );
         console.log( "end initiated" );
         $( "#output" ).text( story[choice] );
     }
     // all the choices that have other paths
-    else if( choice === "wander" || choice === "fight" || choice === "headback" || choice === "help" || choice === "watch" ){
+    else if( choice === "wander" || choice === "fight" || choice === "headback" || choice === "help" || choice === "watch" || choice === "knockout" || choice === "run" || choice === "continue" ){
         // prompt( story[choice] );
         choice = prompt( story[choice] );
         $( "#output" ).text( story[choice] );

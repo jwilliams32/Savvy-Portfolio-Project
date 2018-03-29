@@ -23,18 +23,18 @@ header > h1{
 }
 
 .green-glow{
-  border: 8px solid green;
-  box-shadow: 0 0 10px lightgreen;
+  border: 25px solid green;
+  box-shadow: 0 0 20px lightgreen;
 }
 
 .red-glow{
-border: 8px soild red;
-box-shadow: 0 0 10px lightred;
+border: 25px solid red;
+box-shadow: 0 0 20px #cf1e1e;
 }
 
 .gray-glow{
-border: 8px soild gray;
-box-shadow: 0 0 10px darkgray;
+border: 25px solid gray;
+box-shadow: 0 0 20px darkgray;
 }
 
 section > div {
@@ -127,7 +127,7 @@ section > div > h1{
 
 .choice:hover{
   cursor: pointer;
-  background: red;
+  background: #323299;
 
 }
 
