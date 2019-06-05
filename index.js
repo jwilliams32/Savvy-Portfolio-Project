@@ -1,4 +1,7 @@
 import Navigation from "./components/Navigation";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
 
 
 var state = {
@@ -9,8 +12,8 @@ var state = {
 document
     .querySelector( "#root" )
     .innerHTML = `
-      ${Navigation()}
+      ${Navigation( state )}
       ${Header( state )}
-      ${Content()}
-      ${Footer()}
+      ${Content( state )}
+      ${Footer( state )}
     `;
